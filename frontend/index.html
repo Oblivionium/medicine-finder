@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medicine Price Finder</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>Medicine Price Finder</h1>
+
+            <p>
+                Predict medicine prices and find cheaper alternatives.
+            </p>
+        </header>
+
+
+        <section class="card">
+
+            <h2>Price Predictor</h2>
+
+            <form id="prediction-form">
+
+                <label>
+                    Dosage Form
+                    <input
+                        type="text"
+                        id="dosage-form"
+                        placeholder="tablet"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Pack Size
+                    <input
+                        type="number"
+                        id="pack-size"
+                        placeholder="10"
+                        step="any"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Pack Unit
+                    <input
+                        type="text"
+                        id="pack-unit"
+                        placeholder="strip"
+                    >
+                </label>
+
+                <label>
+                    Primary Ingredient
+                    <input
+                        type="text"
+                        id="primary-ingredient"
+                        placeholder="Paracetamol"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Primary Strength
+                    <input
+                        type="text"
+                        id="primary-strength"
+                        placeholder="500mg"
+                    >
+                </label>
+
+                <label>
+                    Therapeutic Class
+                    <input
+                        type="text"
+                        id="therapeutic-class"
+                        placeholder="analgesic"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Number of Active Ingredients
+                    <input
+                        type="number"
+                        id="num-active-ingredients"
+                        min="1"
+                        value="1"
+                        required
+                    >
+                </label>
+
+                <button type="submit">
+                    Predict Price
+                </button>
+
+            </form>
+
+            <div id="prediction-result"></div>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>Find Alternatives</h2>
+
+            <form id="alternative-form">
+
+                <label>
+                    Medicine Name
+                    <input
+                        type="text"
+                        id="medicine-name"
+                        placeholder="Imbruvica 140mg Capsule"
+                        required
+                    >
+                </label>
+
+                <button type="submit">
+                    Find Alternatives
+                </button>
+
+            </form>
+
+            <div id="alternative-result"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
