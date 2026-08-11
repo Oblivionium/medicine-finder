@@ -1,3 +1,5 @@
+<div align="center">
+
 # Medicine Price Finder
 
 Predict medicine prices and discover cheaper alternatives using machine learning.
@@ -8,6 +10,8 @@ Predict medicine prices and discover cheaper alternatives using machine learning
 [![Git LFS](https://img.shields.io/badge/Git_LFS-Model-8033A4?style=flat-square\&logo=gitlfs\&logoColor=white)](https://git-lfs.com/)
 
 **[Live Demo](YOUR_DEPLOYED_URL)** · **[GitHub Repository](https://github.com/Oblivionium/medicine-finder)**
+
+</div>
 
 ## Overview
 
