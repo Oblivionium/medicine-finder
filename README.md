@@ -25,7 +25,7 @@ The project combines a **Random Forest regression model**, a **FastAPI backend**
 
 ## Preview
 
-![Medicine Price Finder](docs/screenshots/home.png)
+![Medicine Price Finder](docs/home.png)
 
 ## Features
 
