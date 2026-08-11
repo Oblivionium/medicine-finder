@@ -9,7 +9,7 @@ Predict medicine prices and discover cheaper alternatives using machine learning
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=flat-square\&logo=scikit-learn\&logoColor=white)](https://scikit-learn.org/)
 [![Git LFS](https://img.shields.io/badge/Git_LFS-Model-8033A4?style=flat-square\&logo=gitlfs\&logoColor=white)](https://git-lfs.com/)
 
-**[Live Demo](YOUR_DEPLOYED_URL)** · **[GitHub Repository](https://github.com/Oblivionium/medicine-finder)**
+**[Live Demo](YOUR_DEPLOYED_URL)** · **[Source Code](https://github.com/Oblivionium/medicine-finder)**
 
 </div>
 
@@ -20,6 +20,8 @@ Medicine Price Finder is a machine learning web application that predicts the pr
 Instead of entering model features manually, users can search for a medicine, select the exact product, and get a predicted price. The application can then find cheaper medicines with the same composition.
 
 The project combines a **Random Forest regression model**, a **FastAPI backend**, and a lightweight **HTML/CSS/JavaScript frontend**.
+
+**Update**: There has been a temporary snag with the live demo deployment due to vender memory limits. I am still weighing the quality-availability tradeoff and will be making changes to fix this as soon as possible. 
 
 ## Preview
 
@@ -172,7 +174,6 @@ This imbalance is one of the main limitations of the current model.
 * HTML
 * CSS
 * JavaScript
-* Quicksand
 
 ### Tooling
 
@@ -191,6 +192,9 @@ medicine-finder/
 |
 +-- data/
 |   +-- medicine_data.csv
+|
++-- docs/
+|   +-- home.png
 |
 +-- frontend/
 |   +-- index.html
