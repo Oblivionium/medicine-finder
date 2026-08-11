@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
+from src.data import df
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = (
@@ -48,3 +49,24 @@ def predict_price(
     prediction = model.predict(input_data)[0]
 
     return max(0, float(prediction))
+
+
+def predict_medicine_price(medicine_name):
+    medicine = df[
+        df["brand_name"].str.lower() == medicine_name.lower()
+    ]
+
+    if medicine.empty:
+        return None
+
+    medicine = medicine.iloc[0]
+
+    return predict_price(
+        dosage_form=medicine["dosage_form"],
+        pack_size=medicine["pack_size"],
+        pack_unit=medicine["pack_unit"],
+        primary_ingredient=medicine["primary_ingredient"],
+        primary_strength=medicine["primary_strength"],
+        therapeutic_class=medicine["therapeutic_class"],
+        num_active_ingredients=medicine["num_active_ingredients"]
+    )

@@ -3,9 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Medicine Price Finder</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link
         rel="stylesheet"
@@ -17,123 +36,109 @@
 
     <main class="container">
 
-        <header>
-            <h1>Medicine Price Finder</h1>
+<header>
+    <div class="header-actions">
 
-            <p>
-                Predict medicine prices and find cheaper alternatives.
-            </p>
-        </header>
+        <a
+            class="github-link"
+            href="https://github.com/Oblivionium/medicine-finder"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View project on GitHub"
+        >
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path
+                    fill="currentColor"
+                    d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17
+                    6.84 9.49.5.09.68-.22.68-.48
+                    0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34
+                    -.45-1.15-1.11-1.46-1.11-1.46
+                    -.91-.62.07-.61.07-.61
+                    1 .07 1.53 1.03 1.53 1.03
+                    .89 1.53 2.34 1.09 2.91.83
+                    .09-.65.35-1.09.63-1.34
+                    -2.22-.25-4.55-1.11-4.55-4.94
+                    0-1.09.39-1.98 1.03-2.68
+                    -.1-.25-.45-1.27.1-2.65
+                    0 0 .84-.27 2.75 1.02
+                    .8-.22 1.65-.33 2.5-.34
+                    .85 0 1.7.12 2.5.34
+                    1.91-1.29 2.75-1.02 2.75-1.02
+                    .55 1.38.2 2.4.1 2.65
+                    .64.7 1.03 1.59 1.03 2.68
+                    0 3.84-2.34 4.68-4.57 4.93
+                    .36.31.68.92.68 1.85
+                    0 1.34-.01 2.42-.01 2.75
+                    0 .27.18.58.69.48
+                    A10.01 10.01 0 0 0 22 12
+                    C22 6.48 17.52 2 12 2Z"
+                />
+            </svg>
+        </a>
 
+        <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle theme"
+        >
+            ☀
+        </button>
+
+    </div>
+
+    <h1>Medicine Price Finder</h1>
+
+    <p>
+        Find medicine prices and cheaper alternatives.
+    </p>
+</header>
 
         <section class="card">
 
-            <h2>Price Predictor</h2>
+            <h2>Find a Medicine</h2>
 
-            <form id="prediction-form">
+            <input
+                type="text"
+                id="medicine-search"
+                placeholder="Search medicine name..."
+                autocomplete="off"
+            >
 
-                <label>
-                    Dosage Form
-                    <input
-                        type="text"
-                        id="dosage-form"
-                        placeholder="tablet"
-                        required
-                    >
-                </label>
+            <div id="search-results"></div>
 
-                <label>
-                    Pack Size
-                    <input
-                        type="number"
-                        id="pack-size"
-                        placeholder="10"
-                        step="any"
-                        required
-                    >
-                </label>
+        </section>
 
-                <label>
-                    Pack Unit
-                    <input
-                        type="text"
-                        id="pack-unit"
-                        placeholder="strip"
-                    >
-                </label>
 
-                <label>
-                    Primary Ingredient
-                    <input
-                        type="text"
-                        id="primary-ingredient"
-                        placeholder="Paracetamol"
-                        required
-                    >
-                </label>
+        <section
+            class="card"
+            id="medicine-details"
+            style="display: none;"
+        >
 
-                <label>
-                    Primary Strength
-                    <input
-                        type="text"
-                        id="primary-strength"
-                        placeholder="500mg"
-                    >
-                </label>
+            <h2 id="selected-medicine"></h2>
 
-                <label>
-                    Therapeutic Class
-                    <input
-                        type="text"
-                        id="therapeutic-class"
-                        placeholder="analgesic"
-                        required
-                    >
-                </label>
+            <div id="medicine-info"></div>
 
-                <label>
-                    Number of Active Ingredients
-                    <input
-                        type="number"
-                        id="num-active-ingredients"
-                        min="1"
-                        value="1"
-                        required
-                    >
-                </label>
-
-                <button type="submit">
-                    Predict Price
-                </button>
-
-            </form>
+            <button id="predict-button">
+                Predict Price
+            </button>
 
             <div id="prediction-result"></div>
 
         </section>
 
 
-        <section class="card">
+        <section
+            class="card"
+            id="alternatives-section"
+            style="display: none;"
+        >
 
-            <h2>Find Alternatives</h2>
-
-            <form id="alternative-form">
-
-                <label>
-                    Medicine Name
-                    <input
-                        type="text"
-                        id="medicine-name"
-                        placeholder="Imbruvica 140mg Capsule"
-                        required
-                    >
-                </label>
-
-                <button type="submit">
-                    Find Alternatives
-                </button>
-
-            </form>
+            <h2>Cheaper Alternatives</h2>
 
             <div id="alternative-result"></div>
 

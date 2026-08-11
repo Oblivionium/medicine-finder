@@ -14,14 +14,14 @@ DATA_PATH = (
 )
 
 
-df = pd.read_csv(DATA_PATH)
+from src.data import df
 
 df["cleaned_composition"] = (
     df["active_ingredients"].apply(clean_composition)
 )
 
 
-def find_alternatives(medicine_name):
+def find_alternatives(medicine_name, limit=5):
     medicine = df[
         df["brand_name"].str.lower() == medicine_name.lower()
     ]
@@ -29,20 +29,36 @@ def find_alternatives(medicine_name):
     if medicine.empty:
         return None
 
+    selected_price = medicine.iloc[0]["price_inr"]
     composition = medicine.iloc[0]["cleaned_composition"]
 
     alternatives = df[
-        df["cleaned_composition"] == composition
+        (df["cleaned_composition"] == composition)
+        & (df["price_inr"] < selected_price)
+        & (
+            df["brand_name"].str.lower()
+            != medicine_name.lower()
+        )
     ]
 
-    return (
+    alternatives = (
         alternatives
-        .sort_values(by="price_inr")
-        [
-            [
+        .sort_values("price_inr")
+        .drop_duplicates(
+            subset=[
                 "brand_name",
                 "manufacturer",
-                "price_inr"
+                "dosage_form",
+                "primary_strength"
             ]
-        ]
+        )
+        .head(limit)
     )
+
+    return alternatives[
+        [
+            "brand_name",
+            "manufacturer",
+            "price_inr"
+        ]
+    ]
