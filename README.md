@@ -383,5 +383,3 @@ FastAPI
 This project was developed for educational and demonstration purposes.
 
 ---
-
-[GitHub Repository](https://github.com/Oblivionium/medicine-finder)
